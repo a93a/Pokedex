@@ -31,6 +31,7 @@ fun SearchBar(
 
     Box(modifier = modifier) {
         BasicTextField(
+            //TODO Add unfocus and hide keyboard on outside click
             value = text,
             onValueChange = {
                 text = it

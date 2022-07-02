@@ -1,5 +1,7 @@
 package com.example.pokedex.ui.pokemonlist
 
+import androidx.compose.animation.fadeIn
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -8,6 +10,7 @@ import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
@@ -22,10 +25,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import coil.compose.*
 import coil.request.ImageRequest
+import coil.request.SuccessResult
 import com.example.pokedex.data.model.PokedexPokemonEntry
 import com.example.pokedex.ui.theme.RobotoCondensed
-import com.google.accompanist.coil.CoilImage
 
 
 @Composable
@@ -61,26 +65,35 @@ fun PokedexEntry(
             }
     ) {
         Column {
-            CoilImage(
-                request = ImageRequest.Builder(LocalContext.current)
-                    .data(entry.imageUrl)
-                    .target {
-                        viewModel.calculateDominantColor(it) { color ->
-                            dominantColor = color
-                        }
-                    }
-                    .build(),
+            val painter = rememberAsyncImagePainter(
+                ImageRequest.Builder(LocalContext.current).data(data = entry.imageUrl).apply(block = fun ImageRequest.Builder.() {
+                    crossfade(true)
+                        .transformations(
+                        )
+                        .build()
+                }).build()
+            )
+
+            val state = painter.state
+            if (state is AsyncImagePainter.State.Loading || state is AsyncImagePainter.State.Error) {
+                CircularProgressIndicator(
+                    color = MaterialTheme.colors.primary,
+                    modifier = Modifier.scale(2f)
+                )
+            }
+
+            viewModel.getImageBackgroundColor(entry.imageUrl, LocalContext.current) { color ->
+                dominantColor = color
+            }
+
+            Image(
+                painter = painter,
                 contentDescription = entry.name,
-                fadeIn = true,
                 modifier = Modifier
                     .size(120.dp)
                     .align(CenterHorizontally)
-            ) {
-                CircularProgressIndicator(
-                    color = MaterialTheme.colors.primary,
-                    modifier = Modifier.scale(0.5f)
-                )
-            }
+            )
+
             Text(
                 text = entry.name,
                 fontFamily = RobotoCondensed,
