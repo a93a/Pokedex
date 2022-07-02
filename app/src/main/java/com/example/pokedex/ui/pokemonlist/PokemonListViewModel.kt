@@ -9,7 +9,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.palette.graphics.Palette
-import coil.Coil
 import coil.imageLoader
 import coil.request.ImageRequest
 import coil.request.SuccessResult

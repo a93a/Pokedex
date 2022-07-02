@@ -1,6 +1,5 @@
 package com.example.pokedex.ui.pokemonlist
 
-import androidx.compose.animation.fadeIn
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -25,9 +24,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import coil.compose.*
+import coil.compose.AsyncImagePainter
+import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
-import coil.request.SuccessResult
 import com.example.pokedex.data.model.PokedexPokemonEntry
 import com.example.pokedex.ui.theme.RobotoCondensed
 
@@ -75,24 +74,28 @@ fun PokedexEntry(
             )
 
             val state = painter.state
-            if (state is AsyncImagePainter.State.Loading || state is AsyncImagePainter.State.Error) {
-                CircularProgressIndicator(
-                    color = MaterialTheme.colors.primary,
-                    modifier = Modifier.scale(2f)
+
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier.align(CenterHorizontally)
+            ) {
+                if (state is AsyncImagePainter.State.Loading || state is AsyncImagePainter.State.Error) {
+                    CircularProgressIndicator(
+                        color = MaterialTheme.colors.primary,
+                        modifier = Modifier.scale(2f)
+                    )
+                }
+                Image(
+                    painter = painter,
+                    contentDescription = entry.name,
+                    modifier = Modifier
+                        .size(120.dp)
                 )
             }
 
             viewModel.getImageBackgroundColor(entry.imageUrl, LocalContext.current) { color ->
                 dominantColor = color
             }
-
-            Image(
-                painter = painter,
-                contentDescription = entry.name,
-                modifier = Modifier
-                    .size(120.dp)
-                    .align(CenterHorizontally)
-            )
 
             Text(
                 text = entry.name,
