@@ -39,6 +39,7 @@ fun PokemonListScreen(
                     .padding(16.dp)
             ) {
                 viewModel.searchPokemonList(it)
+                //TODO being able to search non-loaded pokemons
             }
             Spacer(modifier = Modifier.height(16.dp))
             PokemonList(navController = navController)

@@ -1,5 +1,6 @@
 package com.example.pokedex.ui.pokemonlist.view
 
+import android.graphics.Color
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -30,6 +31,7 @@ import coil.request.ImageRequest
 import com.example.pokedex.data.model.PokedexPokemonEntry
 import com.example.pokedex.ui.pokemonlist.PokemonListViewModel
 import com.example.pokedex.ui.theme.RobotoCondensed
+import com.example.pokedex.ui.theme.lightGrey
 
 
 @Composable
@@ -82,8 +84,7 @@ fun PokedexEntry(
             ) {
                 if (state is AsyncImagePainter.State.Loading || state is AsyncImagePainter.State.Error) {
                     CircularProgressIndicator(
-                        color = MaterialTheme.colors.primary,
-                        modifier = Modifier.scale(2f)
+                        color = lightGrey
                     )
                 }
                 Image(
