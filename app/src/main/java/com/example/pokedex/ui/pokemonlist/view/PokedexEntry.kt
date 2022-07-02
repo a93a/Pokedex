@@ -21,6 +21,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -32,7 +33,6 @@ import com.example.pokedex.data.model.PokedexPokemonEntry
 import com.example.pokedex.ui.pokemonlist.PokemonListViewModel
 import com.example.pokedex.ui.theme.RobotoCondensed
 import com.example.pokedex.ui.theme.lightGrey
-
 
 @Composable
 fun PokedexEntry(
