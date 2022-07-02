@@ -6,7 +6,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.pokedex.data.model.PokedexPokemonEntry
-import com.example.pokedex.ui.pokemonlist.PokedexEntry
 
 @Composable
 fun PokedexRow(

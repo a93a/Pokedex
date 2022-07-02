@@ -1,4 +1,4 @@
-package com.example.pokedex.ui.pokemonlist
+package com.example.pokedex.ui.pokemonlist.view
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -28,6 +28,7 @@ import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import com.example.pokedex.data.model.PokedexPokemonEntry
+import com.example.pokedex.ui.pokemonlist.PokemonListViewModel
 import com.example.pokedex.ui.theme.RobotoCondensed
 
 

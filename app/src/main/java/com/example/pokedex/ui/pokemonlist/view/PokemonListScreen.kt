@@ -1,4 +1,4 @@
-package com.example.pokedex.ui.pokemonlist
+package com.example.pokedex.ui.pokemonlist.view
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -9,13 +9,15 @@ import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.pokedex.R
-import com.example.pokedex.ui.pokemonlist.view.PokemonList
+import com.example.pokedex.ui.pokemonlist.PokemonListViewModel
 
 @Composable
 fun PokemonListScreen(
-    navController: NavController
+    navController: NavController,
+    viewModel: PokemonListViewModel = hiltViewModel()
 ) {
     Surface(
         color = MaterialTheme.colors.background,
@@ -36,7 +38,7 @@ fun PokemonListScreen(
                     .fillMaxWidth()
                     .padding(16.dp)
             ) {
-
+                viewModel.searchPokemonList(it)
             }
             Spacer(modifier = Modifier.height(16.dp))
             PokemonList(navController = navController)
