@@ -31,14 +31,14 @@ fun PokemonDetailDataItem(
         Text(
             text = "$dataValue $dataUnit",
             color = Color.White,
-            fontSize = 20.sp,
+            fontSize = 16.sp,
             fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.height(8.dp))
         Text(
             text = text,
             color = Color.White,
-            fontSize = 14.sp,
+            fontSize = 12.sp,
             fontWeight = FontWeight.Light
         )
     }

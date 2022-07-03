@@ -19,4 +19,8 @@ data class Pokemon(
     val stats: List<Stat>,
     val types: List<Type>,
     val weight: Int
-)
+){
+    companion object {
+        const val maxAttribute = 300
+    }
+}

@@ -17,6 +17,7 @@ import com.example.pokedex.ui.pokemonlist.view.PokedexEntry
 import com.example.pokedex.ui.pokemonlist.view.PokemonListScreen
 import com.example.pokedex.ui.theme.PokedexTheme
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 import java.util.*
 
 @AndroidEntryPoint

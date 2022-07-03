@@ -101,8 +101,7 @@ fun PokedexEntry(
 
             Text(
                 text = entry.name,
-                fontFamily = RobotoCondensed,
-                fontSize = 20.sp,
+                fontSize = 16.sp,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth()
             )
