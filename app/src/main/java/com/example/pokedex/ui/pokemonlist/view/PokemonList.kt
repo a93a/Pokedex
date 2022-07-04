@@ -58,4 +58,5 @@ fun PokemonList(
             }
         }
     }
+
 }
