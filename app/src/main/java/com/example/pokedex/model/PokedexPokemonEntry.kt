@@ -1,4 +1,4 @@
-package com.example.pokedex.data.model
+package com.example.pokedex.model
 
 data class PokedexPokemonEntry(
     val name: String,

@@ -4,7 +4,6 @@ import androidx.compose.ui.graphics.Color
 import com.example.pokedex.data.remote.response.Stat
 import com.example.pokedex.data.remote.response.Type
 import com.example.pokedex.ui.theme.*
-import java.util.*
 
 fun parseTypeToColor(type: Type): Color {
     return when(type.type.name.lowercase()) {

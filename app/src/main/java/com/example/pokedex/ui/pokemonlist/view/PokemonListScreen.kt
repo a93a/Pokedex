@@ -10,14 +10,11 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.example.pokedex.R
 import com.example.pokedex.ui.pokemonlist.PokemonListViewModel
-import com.example.pokedex.ui.theme.PokedexTheme
 
 @Composable
 fun PokemonListScreen(

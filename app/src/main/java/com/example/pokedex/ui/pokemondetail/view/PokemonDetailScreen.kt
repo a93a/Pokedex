@@ -3,7 +3,6 @@ package com.example.pokedex.ui.pokemondetail.view
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.produceState
 import androidx.compose.ui.Alignment
@@ -16,10 +15,11 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
-import com.example.pokedex.data.Resource
 import com.example.pokedex.data.remote.response.Pokemon
+import com.example.pokedex.model.Resource
 import com.example.pokedex.ui.pokemondetail.PokemonDetailViewModel
-import com.example.pokedex.ui.theme.*
+import com.example.pokedex.ui.theme.backgroundLightGrey
+import com.example.pokedex.ui.theme.lightBlue
 
 @Composable
 fun PokemonDetailScreen(
@@ -35,7 +35,7 @@ fun PokemonDetailScreen(
     }.value
     Box(modifier = Modifier
         .fillMaxSize()
-        .background(dominantColor)
+        .background(lightBlue)
         .padding(bottom = 16.dp)
     ) {
         PokemonDetailTopSection(
@@ -58,7 +58,7 @@ fun PokemonDetailScreen(
                 .shadow(10.dp, RoundedCornerShape(10.dp))
                 .clip(RoundedCornerShape(10.dp))
                 .background(backgroundLightGrey)
-                .padding(16.dp)
+                //.padding(16.dp)
                 .align(Alignment.BottomCenter),
             loadingModifier = Modifier
                 .size(100.dp)
@@ -72,7 +72,8 @@ fun PokemonDetailScreen(
         )
         Box(contentAlignment = Alignment.TopCenter,
             modifier = Modifier
-                .fillMaxSize()) {
+                .fillMaxSize()
+            ) {
             if(pokemonInfo is Resource.Success) {
                 pokemonInfo.data?.sprites?.let {
                     AsyncImage(

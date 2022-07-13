@@ -1,11 +1,14 @@
 package com.example.pokedex.ui.pokemonlist.view
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.pokedex.data.model.PokedexPokemonEntry
+import com.example.pokedex.model.PokedexPokemonEntry
 
 @Composable
 fun PokedexRow(

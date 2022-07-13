@@ -1,7 +1,8 @@
-package com.example.pokedex
+package com.example.pokedex.util
 
 import android.content.Context
 import androidx.startup.Initializer
+import com.example.pokedex.BuildConfig
 import timber.log.Timber
 
 class TimberInitializer : Initializer<Unit> {

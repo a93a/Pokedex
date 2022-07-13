@@ -1,9 +1,9 @@
 package com.example.pokedex.di
 
-import com.example.pokedex.data.PokemonRepository
 import com.example.pokedex.data.PokemonRepositoryImpl
 import com.example.pokedex.data.remote.PokeApi
-import com.example.pokedex.util.C.BASE_URL
+import com.example.pokedex.domain.PokemonRepository
+import com.example.pokedex.util.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

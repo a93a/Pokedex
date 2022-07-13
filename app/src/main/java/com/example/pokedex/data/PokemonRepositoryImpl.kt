@@ -3,6 +3,8 @@ package com.example.pokedex.data
 import com.example.pokedex.data.remote.PokeApi
 import com.example.pokedex.data.remote.response.Pokemon
 import com.example.pokedex.data.remote.response.PokemonList
+import com.example.pokedex.domain.PokemonRepository
+import com.example.pokedex.model.Resource
 import dagger.hilt.android.scopes.ActivityScoped
 import javax.inject.Inject
 

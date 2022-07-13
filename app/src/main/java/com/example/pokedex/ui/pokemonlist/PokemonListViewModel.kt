@@ -12,10 +12,10 @@ import androidx.palette.graphics.Palette
 import coil.imageLoader
 import coil.request.ImageRequest
 import coil.request.SuccessResult
-import com.example.pokedex.data.PokemonRepository
-import com.example.pokedex.data.Resource
-import com.example.pokedex.data.model.PokedexPokemonEntry
-import com.example.pokedex.util.C.PAGE_SIZE
+import com.example.pokedex.domain.PokemonRepository
+import com.example.pokedex.model.PokedexPokemonEntry
+import com.example.pokedex.model.Resource
+import com.example.pokedex.util.Constants.PAGE_SIZE
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
