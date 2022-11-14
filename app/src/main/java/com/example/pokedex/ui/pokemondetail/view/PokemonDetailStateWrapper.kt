@@ -7,13 +7,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.example.pokedex.data.remote.response.Pokemon
+import com.example.pokedex.model.PokemonDetail
 import com.example.pokedex.model.Resource
 import com.example.pokedex.ui.theme.lightGrey
 
 @Composable
 fun PokemonDetailStateWrapper(
-    pokemonInfo: Resource<Pokemon>,
+    pokemonInfo: Resource<PokemonDetail>,
     modifier: Modifier = Modifier,
     loadingModifier: Modifier = Modifier
 ) {

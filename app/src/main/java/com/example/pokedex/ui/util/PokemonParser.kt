@@ -1,12 +1,11 @@
 package com.example.pokedex.ui.util
 
 import androidx.compose.ui.graphics.Color
-import com.example.pokedex.data.remote.response.Stat
-import com.example.pokedex.data.remote.response.Type
+import com.example.pokedex.data.remote.data.PokemonDetail
 import com.example.pokedex.ui.theme.*
 
-fun parseTypeToColor(type: Type): Color {
-    return when(type.type.name.lowercase()) {
+fun parseTypeToColor(type: String): Color {
+    return when(type.lowercase()) {
         "normal" -> TypeNormal
         "fire" -> TypeFire
         "water" -> TypeWater
@@ -29,8 +28,8 @@ fun parseTypeToColor(type: Type): Color {
     }
 }
 
-fun parseStatToColor(stat: Stat): Color {
-    return when(stat.stat.name.lowercase()) {
+fun parseStatToColor(stat: String): Color {
+    return when(stat.lowercase()) {
         "hp" -> HPColor
         "attack" -> AtkColor
         "defense" -> DefColor
@@ -41,8 +40,8 @@ fun parseStatToColor(stat: Stat): Color {
     }
 }
 
-fun parseStatToAbbr(stat: Stat): String {
-    return when(stat.stat.name.lowercase()) {
+fun parseStatToAbbr(stat: String): String {
+    return when(stat.lowercase()) {
         "hp" -> "HP"
         "attack" -> "Atk"
         "defense" -> "Def"

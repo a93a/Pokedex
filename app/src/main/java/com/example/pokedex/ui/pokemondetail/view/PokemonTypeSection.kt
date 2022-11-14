@@ -14,12 +14,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.pokedex.data.remote.response.Type
+import com.example.pokedex.model.PokemonDetail
 import com.example.pokedex.ui.util.parseTypeToColor
 import java.util.*
 
 @Composable
-fun PokemonTypeSection(types: List<Type>) {
+fun PokemonTypeSection(types: List<String>) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
@@ -36,7 +36,7 @@ fun PokemonTypeSection(types: List<Type>) {
                     .height(30.dp)
             ) {
                 Text(
-                    text = type.type.name.replaceFirstChar {
+                    text = type.replaceFirstChar {
                         if (it.isLowerCase()) it.titlecase(
                             Locale.ROOT
                         ) else it.toString()

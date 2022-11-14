@@ -9,7 +9,6 @@ import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
@@ -26,13 +25,13 @@ import androidx.navigation.NavController
 import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
-import com.example.pokedex.model.PokedexPokemonEntry
+import com.example.pokedex.model.Pokemon
 import com.example.pokedex.ui.pokemonlist.PokemonListViewModel
 import com.example.pokedex.ui.theme.lightGrey
 
 @Composable
 fun PokedexEntry(
-    entry: PokedexPokemonEntry,
+    entry: Pokemon,
     navController: NavController,
     modifier: Modifier = Modifier,
     viewModel: PokemonListViewModel = hiltViewModel()
@@ -64,7 +63,7 @@ fun PokedexEntry(
     ) {
         Column {
             val painter = rememberAsyncImagePainter(
-                ImageRequest.Builder(LocalContext.current).data(data = entry.imageUrl).apply(block = fun ImageRequest.Builder.() {
+                ImageRequest.Builder(LocalContext.current).data(data = entry.url).apply(block = fun ImageRequest.Builder.() {
                     crossfade(true)
                         .transformations(
                         )
@@ -75,7 +74,7 @@ fun PokedexEntry(
             val state = painter.state
 
             Box(
-                contentAlignment = Alignment.Center,
+                contentAlignment = Center,
                 modifier = Modifier.align(CenterHorizontally)
             ) {
                 if (state is AsyncImagePainter.State.Loading || state is AsyncImagePainter.State.Error) {
@@ -91,7 +90,7 @@ fun PokedexEntry(
                 )
             }
 
-            viewModel.getImageBackgroundColor(entry.imageUrl, LocalContext.current) { color ->
+            viewModel.getImageBackgroundColor(entry.url, LocalContext.current) { color ->
                 dominantColor = color
             }
 

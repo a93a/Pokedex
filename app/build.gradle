@@ -71,9 +71,9 @@ dependencies {
 
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation "com.squareup.okhttp3:okhttp:5.0.0-alpha.8"
     implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.8"
+    implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
 
     // Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.2'
@@ -84,6 +84,7 @@ dependencies {
     // Coil
     implementation "io.coil-kt:coil:2.1.0"
     implementation "io.coil-kt:coil-compose:2.1.0"
+    implementation"io.coil-kt:coil-gif:2.1.0"
 
     //Dagger - Hilt
     implementation "com.google.dagger:hilt-android:2.42"
@@ -92,11 +93,24 @@ dependencies {
     implementation("androidx.hilt:hilt-navigation-fragment:1.0.0")
     implementation "androidx.hilt:hilt-navigation-compose:1.0.0"
 
+    //Palette
     implementation 'androidx.palette:palette:1.0.0'
 
+    //startup/initializer
     implementation "androidx.startup:startup-runtime:1.2.0-alpha01"
 
+    //Timber
     implementation 'com.jakewharton.timber:timber:5.0.1'
+
+    //Room
+    implementation "androidx.room:room-runtime:2.4.2"
+    implementation "androidx.room:room-ktx:2.4.2"
+    kapt "androidx.room:room-compiler:2.4.2"
+
+    //Moshi
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:1.13.0"
+    implementation"com.squareup.moshi:moshi-kotlin:1.13.0"
+
 
 }
 

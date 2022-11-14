@@ -12,12 +12,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.pokedex.data.remote.response.Pokemon
+import com.example.pokedex.model.PokemonDetail
 import java.util.*
 
 @Composable
 fun PokemonDetailSection(
-    info: Pokemon,
+    info: PokemonDetail,
     modifier: Modifier = Modifier
 ) {
     val scrollState = rememberScrollState()

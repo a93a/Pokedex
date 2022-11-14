@@ -8,12 +8,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.pokedex.model.PokedexPokemonEntry
+import com.example.pokedex.model.Pokemon
 
 @Composable
 fun PokedexRow(
     rowIndex: Int,
-    entries: List<PokedexPokemonEntry>,
+    entries: List<Pokemon>,
     navController: NavController
 ) {
     Column {
