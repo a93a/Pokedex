@@ -2,12 +2,12 @@ package com.example.pokedex.data
 
 import com.example.pokedex.data.local.PokemonDatabase
 import com.example.pokedex.data.remote.PokeApi
-import com.example.pokedex.data.util.toDomainModel
+import com.example.pokedex.domain.mapper.asDomain
+import com.example.pokedex.domain.mapper.asLocal
 import com.example.pokedex.domain.repository.PokemonRepository
 import com.example.pokedex.model.Pokemon
 import com.example.pokedex.model.PokemonDetail
 import dagger.hilt.android.scopes.ActivityScoped
-import java.util.*
 import javax.inject.Inject
 
 @ActivityScoped
@@ -17,17 +17,31 @@ class PokemonRepositoryImpl @Inject constructor(
 ): PokemonRepository {
 
     override suspend fun getPokemonList(page: Int): List<Pokemon> {
-        val networkResult = api.getPokemonList(page, page * PAGE_SIZE)
-        val pokedexEntries = networkResult.results.mapIndexed { _, entry ->
-            entry.toDomainModel()
+
+        var databaseResult = pokemonDatabase.pokemonDao().getPokemonList(page * PAGE_SIZE).map { it.asDomain() }
+
+        if (databaseResult.isEmpty()) {
+            val networkResult = api.getPokemonList(page, page * PAGE_SIZE).results.map { it.asLocal() }
+            pokemonDatabase.pokemonDao().insertPokemonList(networkResult)
+            databaseResult = pokemonDatabase.pokemonDao().getPokemonList(page * PAGE_SIZE).map { it.asDomain() }
         }
-        return pokedexEntries
+
+        return databaseResult
     }
 
     override suspend fun getPokemonInfo(pokemonName: String): PokemonDetail {
-        val pokemonDetail = api.getPokemonInfo(pokemonName)
-        return pokemonDetail.toDomainModel()
+
+        var databaseResult = pokemonDatabase.pokemonDetailDao().getPokemonInfo(pokemonName)
+
+        if(databaseResult == null){
+
+            val networkResult = api.getPokemonInfo(pokemonName).asLocal()
+            pokemonDatabase.pokemonDetailDao().insertPokemonInfo(networkResult)
+            databaseResult = pokemonDatabase.pokemonDetailDao().getPokemonInfo(pokemonName)
+        }
+        return databaseResult!!.asDomain() //temp
     }
+
 
     companion object {
         const val PAGE_SIZE = 20
