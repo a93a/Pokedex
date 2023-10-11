@@ -7,7 +7,7 @@ import com.example.pokedex.data.local.data.Pokemon
 import com.example.pokedex.data.local.data.PokemonDetail
 import com.example.pokedex.data.local.typeconverter.TypeConverter
 
-@Database(entities = [Pokemon::class, PokemonDetail::class], version = 1, exportSchema = true)
+@Database(entities = [Pokemon::class, PokemonDetail::class], version = 1, exportSchema = false)
 @TypeConverters(TypeConverter::class)
 abstract class PokemonDatabase : RoomDatabase() {
 
