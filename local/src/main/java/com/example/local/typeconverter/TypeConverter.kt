@@ -1,9 +1,8 @@
-package com.example.pokedex.data.local.typeconverter
+package com.example.local.typeconverter
 
 import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter
-import com.example.pokedex.data.local.data.Stat
-import com.example.pokedex.data.remote.data.PokemonDetail
+import com.example.local.data.Stat
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types

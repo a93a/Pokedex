@@ -1,8 +1,7 @@
-package com.example.pokedex.data.local.data
+package com.example.local.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.pokedex.data.remote.data.PokemonDetail
 import com.squareup.moshi.JsonClass
 
 @Entity

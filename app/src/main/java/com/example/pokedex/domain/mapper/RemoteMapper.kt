@@ -1,10 +1,10 @@
 package com.example.pokedex.domain.mapper
 
-import com.example.pokedex.data.local.data.Stat
+import com.example.local.data.Stat
 import com.example.pokedex.model.PokemonDetail as PokemonDetailModel
 import com.example.pokedex.data.remote.data.PokemonDetail as PokemonDetailRemote
-import com.example.pokedex.data.local.data.PokemonDetail as PokemonDetailLocal
-import com.example.pokedex.data.local.data.Pokemon as PokemonDatabase
+import com.example.local.data.PokemonDetail as PokemonDetailLocal
+import com.example.local.data.Pokemon as PokemonDatabase
 import com.example.pokedex.data.remote.data.Pokemon as PokemonRemote
 
 
@@ -41,7 +41,7 @@ fun PokemonDetailRemote.asLocal() = PokemonDetailLocal(
                       it.type.name
     },
     stats = stats.map {
-        Stat(
+        com.example.local.data.Stat(
             baseStat = it.baseStat,
             stat = it.stat.name
         )

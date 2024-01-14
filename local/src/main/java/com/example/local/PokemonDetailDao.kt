@@ -1,7 +1,7 @@
-package com.example.pokedex.data.local
+package com.example.local
 
 import androidx.room.*
-import com.example.pokedex.data.local.data.PokemonDetail
+import com.example.local.data.PokemonDetail
 
 @Dao
 interface PokemonDetailDao {

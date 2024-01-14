@@ -1,9 +1,9 @@
 package com.example.pokedex.domain.mapper
 
-import com.example.pokedex.data.local.data.Pokemon as PokemonDatabase
+import com.example.local.data.Pokemon as PokemonDatabase
 import com.example.pokedex.model.Pokemon as PokemonModel
 import com.example.pokedex.model.PokemonDetail as PokemonDetailModel
-import com.example.pokedex.data.local.data.PokemonDetail as PokemonDetailDatabase
+import com.example.local.data.PokemonDetail as PokemonDetailDatabase
 
 fun PokemonDatabase.asDomain() = PokemonModel(
     name = name,

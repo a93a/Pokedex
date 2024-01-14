@@ -2,10 +2,10 @@ package com.example.pokedex.di
 
 import android.app.Application
 import androidx.room.Room
-import com.example.pokedex.data.local.PokemonDatabase
+import com.example.local.PokemonDatabase
 import com.example.pokedex.data.remote.PokeApi
 import com.example.pokedex.data.PokemonRepositoryImpl
-import com.example.pokedex.data.local.typeconverter.TypeConverter
+import com.example.local.typeconverter.TypeConverter
 import com.example.pokedex.data.remote.PokeApi.Companion.BASE_URL
 import com.example.pokedex.domain.repository.PokemonRepository
 import com.squareup.moshi.Moshi
@@ -31,18 +31,6 @@ object PokemonDataModule {
         .build()
         .create(PokeApi::class.java)
 
-    @Singleton
-    @Provides
-    fun provideAppDatabase(
-        application: Application,
-        typeConverter: TypeConverter
-    ): PokemonDatabase = Room
-            .databaseBuilder(application, PokemonDatabase::class.java,
-                PokemonDatabase.POKEMON_DATABASE
-            )
-            .addTypeConverter(typeConverter)
-            .fallbackToDestructiveMigration()
-            .build()
 
     @Singleton
     @Provides
@@ -56,10 +44,6 @@ object PokemonDataModule {
     fun provideMoshi(): Moshi = Moshi.Builder()
         .addLast(KotlinJsonAdapterFactory())
         .build()
-
-    @Provides
-    @Singleton
-    fun provideTypeConverter(moshi: Moshi): TypeConverter = TypeConverter(moshi)
 
 }
 

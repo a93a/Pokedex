@@ -1,10 +1,10 @@
-package com.example.pokedex.data.local
+package com.example.local
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.pokedex.data.local.data.Pokemon
+import com.example.local.data.Pokemon
 
 @Dao
 interface PokemonDao {

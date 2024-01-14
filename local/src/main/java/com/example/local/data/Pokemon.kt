@@ -1,4 +1,4 @@
-package com.example.pokedex.data.local.data
+package com.example.local.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

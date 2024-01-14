@@ -1,6 +1,6 @@
 package com.example.pokedex.data
 
-import com.example.pokedex.data.local.PokemonDatabase
+import com.example.local.PokemonDatabase
 import com.example.pokedex.data.remote.PokeApi
 import com.example.pokedex.domain.mapper.asDomain
 import com.example.pokedex.domain.mapper.asLocal
@@ -13,7 +13,7 @@ import javax.inject.Inject
 @ActivityScoped
 class PokemonRepositoryImpl @Inject constructor(
     private val api: PokeApi,
-    private val pokemonDatabase: PokemonDatabase
+    private val pokemonDatabase: com.example.local.PokemonDatabase
 ): PokemonRepository {
 
     override suspend fun getPokemonList(page: Int): List<Pokemon> {

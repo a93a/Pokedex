@@ -47,6 +47,9 @@ android {
 
 dependencies {
 
+    // Modules
+    implementation(project(":local"))
+
     implementation(libs.androidx.core)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.activity)
