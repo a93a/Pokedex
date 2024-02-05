@@ -1,7 +1,7 @@
 package com.example.pokedex.data
 
 import com.example.local.PokemonDatabase
-import com.example.pokedex.data.remote.PokeApi
+import com.example.remote.remote.PokeApi
 import com.example.pokedex.domain.mapper.asDomain
 import com.example.pokedex.domain.mapper.asLocal
 import com.example.pokedex.domain.repository.PokemonRepository
@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 @ActivityScoped
 class PokemonRepositoryImpl @Inject constructor(
-    private val api: PokeApi,
+    private val api: com.example.remote.remote.PokeApi,
     private val pokemonDatabase: com.example.local.PokemonDatabase
 ): PokemonRepository {
 

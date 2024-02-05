@@ -1,7 +1,7 @@
 package com.example.pokedex.ui.util
 
 import androidx.compose.ui.graphics.Color
-import com.example.pokedex.data.remote.data.PokemonDetail
+import com.example.remote.remote.data.PokemonDetail
 import com.example.pokedex.ui.theme.*
 
 fun parseTypeToColor(type: String): Color {

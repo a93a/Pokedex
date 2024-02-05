@@ -2,10 +2,10 @@ package com.example.pokedex.domain.mapper
 
 import com.example.local.data.Stat
 import com.example.pokedex.model.PokemonDetail as PokemonDetailModel
-import com.example.pokedex.data.remote.data.PokemonDetail as PokemonDetailRemote
+import com.example.remote.remote.data.PokemonDetail as PokemonDetailRemote
 import com.example.local.data.PokemonDetail as PokemonDetailLocal
 import com.example.local.data.Pokemon as PokemonDatabase
-import com.example.pokedex.data.remote.data.Pokemon as PokemonRemote
+import com.example.remote.remote.data.Pokemon as PokemonRemote
 
 
 fun PokemonRemote.asLocal() = PokemonDatabase(

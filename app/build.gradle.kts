@@ -49,6 +49,7 @@ dependencies {
 
     // Modules
     implementation(project(":local"))
+    implementation(project(":remote"))
 
     implementation(libs.androidx.core)
     implementation(libs.androidx.appcompat)

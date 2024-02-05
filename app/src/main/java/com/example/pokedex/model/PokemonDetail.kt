@@ -1,6 +1,6 @@
 package com.example.pokedex.model
 
-import com.example.pokedex.data.remote.data.PokemonDetail
+import com.example.remote.remote.data.PokemonDetail
 import com.squareup.moshi.Json
 
 data class PokemonDetail(

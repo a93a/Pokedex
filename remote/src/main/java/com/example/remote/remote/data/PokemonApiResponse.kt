@@ -1,4 +1,4 @@
-package com.example.pokedex.data.remote.data
+package com.example.remote.remote.data
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
