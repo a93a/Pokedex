@@ -10,6 +10,19 @@ Pokedex is a modern but simple Android app that has the following features:
 
 The app is built with scalability in mind, using the latest Android developmen practices. It is built using MVVM architecture, and makes use of Modularization.
 
+## App architecture
+The app is designed with 4 layers:
+- UI layer: Here you have your compose views
+- Presentation Layer: Here you have your ViewModels, which are responsible for presenting your data, and handling user input and delegating them to Domain layer & Listen for data
+- Domain Layer: Here lies all the Repositories you need for to access your data. They handle traffic from network & storing in local Database. The app also makes use of UseCases to handle user input & Get data.
+- Data layer: Here you have your different Datasources. Each Datasource is responsible for accessing data from a different source, such as local database, remote sources, datastore, etc.
+
+
+## App modules
+The app makes use of modules to split different components into its own module. Why modules? To lower buildtimes, only build the parts you need after making changes to them, to de-couple parts of the app. This makes the app more readable, scalable and testable.
+
+
+
 ## Techstack
 - :white_check_mark: Kotlin
 - :white_check_mark: Compose and Navigation component
