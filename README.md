@@ -46,6 +46,7 @@ The app makes use of modules to split different components into its own module. 
 - :black_square_button: Add newsfeed
 - :black_square_button: Add settings
 - :black_square_button: Add Favourites
+- :black_square_button: Migrate to Paging 3
 
 # License
 
